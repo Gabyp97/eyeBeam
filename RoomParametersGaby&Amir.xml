@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RoomParametersXMLFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DocumentVersion>B005.0.0</DocumentVersion>
+    <Rooms>
+    <!-- Not sure DoNotMoveCameraPosition works? -->
+    <!-- Not sure the effect of IsFixedRotation=false -->
+    <!-- keep this Room number zero for butterfiles to work , we still dont support multiple rooms-->
+        
+    <!--SubjectLocationY is VR was 0-->
+    <RoomInitialization RoomNumber="0" 
+                        IsFixedRotation="true" 
+                        RotationDegreesY="0" 
+                        DoNotMoveCameraPosition="true"
+                        SubjectLocationX = "-8.5"
+                        SubjectLocationY = "0.0"
+                        SubjectLocationZ = "-2"
+                        FloorYLocationForGrowShrink="0.85" CielingYLocationForGrowShrink="3.714" 
+                        
+                        >
+                        
+                        <!-- V6.7 -->
+                        <ListOfGroupOfButterflys>
+                            <!--ButterfliesActiveGroup ID="1"> 
+                                <Position X="-20" Y="3" Z="-3"></Position>
+                            </ButterfliesActiveGroup-->
+                        </ListOfGroupOfButterflys>
+                        <DirectRuntimeLight Enable="true" Intensity="0.35" ShadowStrength="0.3">
+                        <Rotation X="33.7" Y="-98.6" Z="13"></Rotation>
+                        </DirectRuntimeLight>
+                     
+                      <EyeTrackedWalls>
+                        <EyeTrackedWall WallName="MainWall" Enable="true" Visible="true" InRow="1" InColumn="1" >
+                            <Position X="-8" Y="2" Z="-1"></Position>
+                            <Scale X="0.1" Y="0.1" Z="0.1"></Scale>
+                            <Rotation X="0" Y="0" Z="0"></Rotation>
+                         </EyeTrackedWall> 
+                    </EyeTrackedWalls>
+</RoomInitialization>
+    </Rooms>
+    <ButterfliesGroups> 
+        <ButterfliesGroup ID="1" >
+            <GroupData>
+                  <TurnAroundDistance>3</TurnAroundDistance>
+            </GroupData>
+            <Butterflys>
+                <Butterfly>
+                    <Position X="0" Y="0" Z="0"></Position>
+                    <Scale >10</Scale>
+                    <Rotation>0</Rotation>
+                    
+                    <Speed GeneralSpeed="1.2"  RandomFactorDown="0.95"  RandomFactorUp="1.05" RotationSpeed="1" WingAnimationSpeed="0.3"
+                        UpDownAmplitude="11" > </Speed>
+                </Butterfly>
+                <Butterfly>
+                    <Position X="0" Y="0.5" Z="1"></Position>
+                    <Scale >10</Scale>
+                    <Rotation>3</Rotation>
+                    
+                    <Speed GeneralSpeed="1.1"  RandomFactorDown="0.95"  RandomFactorUp="1.05" RotationSpeed="1" WingAnimationSpeed="0.29"
+                        UpDownAmplitude="10" > </Speed>
+                </Butterfly>
+              </Butterflys>
+        </ButterfliesGroup>
+        
+        <ButterfliesGroup ID="50" Note="For SOA">
+            <GroupData>
+                  <TurnAroundDistance>50</TurnAroundDistance>
+            </GroupData>
+            <Butterflys>
+                <Butterfly>
+                    <Position X="0" Y="0" Z="0"></Position>
+                    <Scale >0.5</Scale>
+                    <Rotation>-90</Rotation>
+                    
+                    <Speed GeneralSpeed="100"  RandomFactorDown="10"  RandomFactorUp="10" RotationSpeed="1" WingAnimationSpeed="1"
+                        UpDownAmplitude="10000" > </Speed>
+                </Butterfly>
+            </Butterflys>
+        </ButterfliesGroup>
+
+    </ButterfliesGroups>
+    
+    <!-- this is the Bar that assumes earth gravity -->
+    <ButterflyGravityManipulatorGravity> -9.81         </ButterflyGravityManipulatorGravity>
+    <ButterflyGravityManipulator> 3 </ButterflyGravityManipulator>
+    <VaseShresholdcrash>1</VaseShresholdcrash>
+    <BallMass>1.0</BallMass>
+    
+    <BallDrag>0.2</BallDrag>
+    <BallAngularDrag>0.6</BallAngularDrag>
+    <BallBounciness>0.6</BallBounciness>
+    <CollectBallDistance>0.5</CollectBallDistance>
+    
+    <!-- V6.14 - For SOAL- set to 0 to remove               -->
+
+    <!-- 6.18.X things integration -->
+	<BlockViewAtStartDuration>0.100</BlockViewAtStartDuration>
+    <BlockViewAtRoomEndDuration>0.050</BlockViewAtRoomEndDuration>
+    <BlockViewAtPostQuestionDuration>0.100</BlockViewAtPostQuestionDuration>
+    <BlockViewPrePostTrigger>0.050</BlockViewPrePostTrigger>
+
+    <!-- pretty much depracted -->
+    <UseHandVelocityForBall>false</UseHandVelocityForBall>
+
+
+    <!-- -->
+    
+    <HighlighHoverOverBall>true</HighlighHoverOverBall>
+    <LargeBaseballT>true</LargeBaseballT>
+    <TargetMarkColor R="255" G="200" B="200"></TargetMarkColor>
+    <ForeArm enable="true">
+        <Position X="0.0335" Y="0.047" Z="-0.1754">                </Position>
+        <Scale X="0.05" Y="0.06" Z="0.18"></Scale>
+        <Rotation X="225.114" Y="-6.1529" Z="-5.638"></Rotation>
+    </ForeArm>
+    
+    <!-- V3 SOALearning -->
+    <SOATasks>true</SOATasks>
+    <AngleChangeArmLength>0.5</AngleChangeArmLength>
+    <!-- V5 SOALearning -->
+    <DropSOATrialReturnDistance>0.20</DropSOATrialReturnDistance>
+    <ShowSOATrialDistanceFromInit>0.25</ShowSOATrialDistanceFromInit>
+    <DropSOATrialReturnTimeLinger>0.01</DropSOATrialReturnTimeLinger>
+    <!-- V6 SOAL -->
+    <SOATrialControlFakeHand>true</SOATrialControlFakeHand>
+    
+    <!-- General Declarations for Visual Recognition -->
+    
+        <FixedLocations>
+            <Location ID="1">
+                <Position X="-17.4" Y="2.66" Z="-8.45">
+                </Position>
+            </Location>
+            <Location ID="2">
+                <Position X="-17.4" Y="2.66" Z="-9.45">
+                </Position>
+            </Location>
+            <Location ID="3">
+                <Position X="-17.4" Y="2.66" Z="-9.00">
+                </Position>
+            </Location>
+            <Location ID="30">
+                <Position X="-17.4" Y="3.00" Z="-9.00">
+                </Position>
+            </Location>
+
+            <!-- is table relative to init or tracker ? -->
+            <Location ID="50" Note="Table Position To Tracker">
+                <Position X=".35" Y="0" Z="-0.76">
+                </Position>
+            </Location>
+            
+            <Location ID="51" Note="XSign-Position To Tracker">
+                <Position X="-.18" Y="0.15" Z="0">
+                </Position>
+            </Location>
+            
+            <Location ID="52" Note="Initial Start Position relative to Tracker">
+                <Position X="-.16" Y="0.15" Z="0">
+                </Position>
+            </Location>
+			<!--  x+0.53, z-0.5 -->
+            <Location ID="53" Note="FakeTracker">
+                <Position X="-8.5" Y="0" Z="-2.0">
+                </Position>
+            </Location>
+
+            
+            <Location ID="60" Note="SOA Target1">
+                <Position X="0.20" Y="0" Z="0.42">
+                </Position>
+            </Location>
+            
+            <Location ID="61" Note="SOA Target1">
+                <Position X="0.20" Y="-0.348" Z="0.42">
+                </Position>
+            </Location>
+            
+			<Location ID="62" Note="SOA Target1">
+                <Position X="0.25" Y="0" Z="0.32">
+                </Position>
+            </Location>
+			
+			<Location ID="63" Note="SOA Target1">
+                <Position X="0.25" Y="-0.348" Z="0.32">
+                </Position>
+            </Location>
+			
+			<Location ID="64" Note="SOA Target1">
+                <Position X="0.20" Y="-0.174" Z="0.42">
+                </Position>
+            </Location>
+			<Location ID="65" Note="SOA Target1">
+                <Position X="0.25" Y="-0.174" Z="0.32">
+                </Position>
+            </Location>
+			<Location ID="66" Note="SOA Target1">
+                <Position X="0.20" Y="-0.174" Z="0.37">
+                </Position>
+            </Location>
+			<Location ID="70" Note="SOA Target1">
+                <Position X="100" Y="-0.174" Z="0.37">
+                </Position>
+            </Location>
+			
+            
+                        
+            
+            <Location ID="100">
+                <Position X="-18" Y="4.50" Z="-10.00">
+                </Position>
+            </Location>
+            
+        </FixedLocations>
+        <VisualObjectsData>
+            <VisualObjectData ID="1" Description="Plant10">
+                <Scale X="0.6" Y="0.6" Z="0.6"></Scale>
+                <Rotation X="0" Y="0" Z="0"></Rotation>
+            </VisualObjectData>
+            <VisualObjectData ID="2" Description="Plant11">
+                <Scale X="0.3" Y="0.3" Z="0.3"></Scale>
+                <Rotation X="0" Y="0" Z="0"></Rotation>
+            </VisualObjectData>
+            <VisualObjectData ID="3" Description="Plant05">
+                <Scale X="0.4" Y="0.4" Z="0.4"></Scale>
+                <Rotation X="180" Y="00" Z="00"></Rotation>
+            </VisualObjectData>
+            <VisualObjectData ID="4" Description="ClayPot06">
+                <Scale X="0.6" Y="0.6" Z="0.6"></Scale>
+                <Rotation X="0" Y="0" Z="0"></Rotation>
+            </VisualObjectData>
+            <VisualObjectData ID="5" Description="ClayPot08">
+                <Scale X="0.3" Y="0.3" Z="0.3"></Scale>
+                <Rotation X="0" Y="0" Z="0"></Rotation>
+            </VisualObjectData>
+            <VisualObjectData ID="6" Description="ClayPot01_04">
+                <Scale X="0.4" Y="0.4" Z="0.4"></Scale>
+                <Rotation X="180" Y="00" Z="00"></Rotation>
+            </VisualObjectData>
+            <VisualObjectData ID="7" Description="Lamp1_3">
+                <Scale X="0.6" Y="0.6" Z="0.6"></Scale>
+                <Rotation X="0" Y="0" Z="0"></Rotation>
+            </VisualObjectData>
+            <VisualObjectData ID="8" Description="Lamp8_2">
+                <Scale X="0.3" Y="0.3" Z="0.3"></Scale>
+                <Rotation X="0" Y="0" Z="0"></Rotation>
+            </VisualObjectData>
+            <VisualObjectData ID="9" Description="Lamp8_3">
+                <Scale X="0.4" Y="0.4" Z="0.4"></Scale>
+                <Rotation X="180" Y="00" Z="00"></Rotation>
+            </VisualObjectData>
+            
+            <VisualObjectData ID="50" Description="Table">
+                <Scale X="1" Y="1" Z="1"></Scale>
+                <Rotation X="90" Y="-90" Z="-90"></Rotation>
+            </VisualObjectData>
+            
+            <VisualObjectData ID="51" Description="X">
+                <Scale X="1" Y="1" Z="1"></Scale>
+                <Rotation X="90" Y="0" Z="0"></Rotation>
+            </VisualObjectData>
+            
+            
+            
+            <VisualObjectData ID="100" Description="RealTimePointLight">
+                <Scale X="1" Y="1" Z="1"></Scale>
+                <Rotation X="00" Y="00" Z="00"></Rotation>
+            </VisualObjectData>
+
+        </VisualObjectsData>
+    
+    <Tasks>
+        <Task number="1" >
+            <BaseBallT addBall="true" RandomAppearence="50">
+                <Position X="0" Y="0" Z="0"></Position>
+                <Rotation X="0" Y="0" Z="0"></Rotation>
+                <Scale X="0.01" Y="0.01" Z="0.015"></Scale>
+                <BallRelativePosition X="-0.01" Y="0.00" Z="0"></BallRelativePosition>
+                <TrackerLessPosition X="-17.7" Y="1.65" Z="-8.9"></TrackerLessPosition>
+                <!--TrackerLessPosition X="-18.0" Y="1.65" Z="-9.3"></TrackerLessPosition-->
+                <TrackerLessRotation X="90" Y="0" Z="0"></TrackerLessRotation>
+
+            </BaseBallT>
+            <Targets>
+                  <Target Mark="true"> <Position X="-18.4" Y="1.66" Z="-8.45"></Position> <Scale X="0.6" Y="0.6" Z="0.6"></Scale> </Target>            
+                <Target Mark="false"> <Position X="-17.9" Y="1.66" Z="-8.45"></Position> <Scale X="0.6" Y="0.6" Z="0.6"></Scale> </Target>
+                
+            </Targets>
+        </Task>
+        <Task number="2">
+            <BaseBallT addBall="true" RandomAppearence="75">
+                <Position X="0" Y="0" Z="0"></Position>
+                <Rotation X="0" Y="50" Z="0"></Rotation>
+                <Scale X="0.01" Y="0.01" Z="0.015"></Scale>
+                <BallRelativePosition X="-0.01" Y="0.00" Z="0"></BallRelativePosition>
+                <TrackerLessPosition X="-17" Y="1.65" Z="-10"></TrackerLessPosition>
+                <TrackerLessRotation X="90" Y="0" Z="0"></TrackerLessRotation>
+            </BaseBallT>
+            <Targets> 
+                        <Target Mark="true"> 
+                            <Position X="-19" Y="1.66" Z="-9.5"></Position> <Scale X="0.8" Y="0.8" Z="0.8"></Scale> </Target>
+                        <Target Mark="true"> 
+                            <Position X="-19.3" Y="1.66" Z="-9.5"></Position> <Scale X="0.8" Y="0.8" Z="0.8"></Scale> 
+                        </Target>
+                        <Target Mark="true"> 
+                            <Position X="-18.3" Y="1.66" Z="-9.5"></Position> <Scale X="0.8" Y="0.8" Z="0.8"></Scale> 
+                        </Target>
+                        <Target Mark="true">
+                            <Position X="-18" Y="1.66" Z="-7.8"></Position> <Scale X="0.8" Y="0.8" Z="0.8"></Scale> 
+                        </Target>
+                </Targets>
+        </Task>
+        <Task number ="1001">
+            <VisualObjects>
+                <VisualObject ObjectID="1" LocationID="1"></VisualObject>
+                <VisualObject ObjectID="2" LocationID="2"></VisualObject>
+                <VisualObject ObjectID="3" LocationID="3"></VisualObject>
+                <VisualObject ObjectID="100" LocationID="100"></VisualObject>
+            </VisualObjects>
+        
+        </Task>
+        <Task number ="1002">
+            <VisualObjects>
+                <VisualObject ObjectID="4" LocationID="1"></VisualObject>
+                <VisualObject ObjectID="5" LocationID="2"></VisualObject>
+                <VisualObject ObjectID="6" LocationID="30"></VisualObject>
+                <VisualObject ObjectID="100" LocationID="100"></VisualObject>
+            </VisualObjects>
+        </Task>
+        
+        <Task number ="1003">
+            <VisualObjects>
+                <VisualObject ObjectID="7" LocationID="3"></VisualObject>
+                <VisualObject ObjectID="8" LocationID="2"></VisualObject>
+                <VisualObject ObjectID="9" LocationID="1"></VisualObject>
+                <VisualObject ObjectID="100" LocationID="100"></VisualObject>
+            </VisualObjects>
+        </Task>
+        
+        <!-- SOALV3 Task example -->
+        <Task number="60" >
+                <SOA ButterflyGroupID="50" DisapearDistanceFromInit="0.20" LocationTargetID="60"  
+									EnableButterflyAlpha="true" ButterFlyAlpha="200" ButterflyDelayInAppearence="0.3"></SOA>
+        </Task>
+        <Task number="61" >
+                <SOA ButterflyGroupID="50" DisapearDistanceFromInit="0.20" LocationTargetID="61"  
+									EnableButterflyAlpha="true" ButterFlyAlpha="200" ButterflyDelayInAppearence="0.3"></SOA>
+        </Task>
+		<Task number="62" >
+                <SOA ButterflyGroupID="50" DisapearDistanceFromInit="0.20" LocationTargetID="62" 
+									EnableButterflyAlpha="true" ButterFlyAlpha="200" ButterflyDelayInAppearence="0.3"></SOA>
+        </Task>
+        
+        <Task number="63" >
+                <SOA ButterflyGroupID="50" DisapearDistanceFromInit="0.20" LocationTargetID="63" 
+									EnableButterflyAlpha="true" ButterFlyAlpha="200" ButterflyDelayInAppearence="0.3"></SOA>
+        </Task>
+		<Task number="64" >
+                <SOA ButterflyGroupID="50" DisapearDistanceFromInit="0.20" LocationTargetID="64" 
+									EnableButterflyAlpha="true" ButterFlyAlpha="200" ButterflyDelayInAppearence="0.3"></SOA>
+        </Task>
+		<Task number="65" >
+                <SOA ButterflyGroupID="50" DisapearDistanceFromInit="0.20" LocationTargetID="65" 
+									EnableButterflyAlpha="true" ButterFlyAlpha="200" ButterflyDelayInAppearence="0.3"></SOA>
+        </Task>
+		<Task number="66" >
+                <SOA ButterflyGroupID="50" DisapearDistanceFromInit="0.20" LocationTargetID="66" 
+									EnableButterflyAlpha="true" ButterFlyAlpha="200" ButterflyDelayInAppearence="0.3"></SOA>
+        </Task>
+
+        <Task number="610" >
+                <SOA ButterflyGroupID="50" DisapearDistanceFromInit="0.20" LocationTargetID="70" 
+									EnableButterflyAlpha="true" ButterFlyAlpha="50" ButterflyDelayInAppearence="3.5"></SOA>
+        </Task>
+        
+        
+    </Tasks>
+</RoomParametersXMLFile>
