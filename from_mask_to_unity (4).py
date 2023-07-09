@@ -21,7 +21,6 @@ def create_rotation_mat(rotationData,euler_z,euler_x,euler_y):
     teta_y = math.radians(rotationData[euler_y])
     teta_x = math.radians(rotationData[euler_x])
     teta_z = math.radians(rotationData[euler_z])
-    #270 ו90 צריכות לקבל אותו ערך במטריצת הסיבוב  ?
     rotation_mat_y = np.array([[math.cos(teta_y),0,math.sin(teta_y)],[0,1,0],[-(math.sin(teta_y)),0,math.cos(teta_y)]])
     rotation_mat_x = np.array([[1,0,0],[0,math.cos(teta_x),-(math.sin(teta_x))],[0,math.sin(teta_x),math.cos(teta_x)]])
     rotation_mat_z = np.array([[math.cos(teta_z),-(math.sin(teta_z)),0],[math.sin(teta_z),math.cos(teta_z),0],[0,0,1]])
@@ -41,8 +40,6 @@ def mult_matrix(z,x,y,vec):
 def from_mask_to_unity(dataFrame,rotation_col,right_eye_col,left_eye_col):
     #always write the column's name in this order : x,y,z
     rotationData,rightEye_gaze,leftEye_gaze = split_DataFrame(dataFrame,rotation_col,right_eye_col,left_eye_col)
-    #leftEye_gaze.loc[:,left_eye_col[0]] = -1*leftEye_gaze.loc[:,left_eye_col[0]]
-    #rightEye_gaze.loc[:,right_eye_col[0]] = -1*rightEye_gaze.loc[:,right_eye_col[0]]
     right_gaze_unity_mat = []
     left_gaze_unity_mat = []
     rotationData = rotationData.set_axis(['x_euler','y_euler','z_euler'],axis=1, inplace=False)
@@ -59,7 +56,6 @@ def from_mask_to_unity(dataFrame,rotation_col,right_eye_col,left_eye_col):
     return r_gaze_dataframe,l_gaze_dataframe
 
 
-        #Next steps: add the multiplacation and add the results to new dataFrame....
 def beam_hit(headset_position,vector,delta,relevant_depth,x_nameP,y_nameP,z_nameP,x_nameV,y_nameV,z_nameV):
     distance_between_eye_releventDepth = -(headset_position[z_nameP] - relevant_depth)
     t = np.array(distance_between_eye_releventDepth/vector[z_nameV])
@@ -79,6 +75,7 @@ def beam_hit(headset_position,vector,delta,relevant_depth,x_nameP,y_nameP,z_name
 #beam = beam_hit(pos_data,ans,0,-1,'x_head','y_head','z_head', 'x', 'y', 'z')
 
 def beam_hit_mat(headset_position_data, left_gaze_mat, right_gaze_mat,):
+    #This function returns you the coordinates that the subject looked at in Unity coordinate system 
     hit_mat_l = pd.DataFrame(columns=['x', 'y', 'z'])
     hit_mat_r = pd.DataFrame(columns=['x', 'y', 'z'])
     headset_position_data = headset_position_data.set_axis(['x_head','y_head','z_head'],axis=1, inplace=False)
@@ -109,12 +106,11 @@ def create_new_csv_output(old_csv_name,rightBeam,leftBeam):
     all_data = pd.concat([old_data,leftBeam,rightBeam],axis=1)
     all_data.to_csv('NewTrackersOutputData.csv')
     return all_data
+    ###exmple how to use the functions
 a = load_data('TrackersOutputData.csv','HeadsetGlobalRotationEulerX','Y.5','Z.5','HeadSetGlobalPositionX','Y.6','Z.6','right.gaze_direction_normalized.x','right.gaze_direction_normalized.y','right.gaze_direction_normalized.z','left.gaze_direction_normalized.x','left.gaze_direction_normalized.y','left.gaze_direction_normalized.z')
 right_gaze_mat,left_gaze_mat =from_mask_to_unity(a,('HeadsetGlobalRotationEulerX','Y.5','Z.5'),('right.gaze_direction_normalized.x','right.gaze_direction_normalized.y','right.gaze_direction_normalized.z'),('left.gaze_direction_normalized.x','left.gaze_direction_normalized.y','left.gaze_direction_normalized.z'))
 right_gaze_mat.to_pickle("right_gaze_mat.pkl")
 left_gaze_mat.to_pickle("left_gaze_mat.pkl")
-#right_gaze_mat = pd.read_pickle("right_gaze_mat.pkl")
-#left_gaze_mat = pd.read_pickle("left_gaze_mat.pkl")
 
 head_position = a[['HeadSetGlobalPositionX','Y.6','Z.6']]
 R_eye,L_eye = beam_hit_mat(head_position,left_gaze_mat,right_gaze_mat)
